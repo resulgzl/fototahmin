@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotoğraf Tarihi Tahmin Oyunu</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.js"></script>
+</head>
+<body>
+  <div id="start-spinner" class="spinner"></div>
+
+  <!-- Başlangıç ekranı -->
+  <div id="player-count-screen" class="screen">
+    <h1>Kaç Kişi Oynayacaksınız?</h1>
+    <div>
+      <button onclick="selectPlayerCount(1)">1 Kişi</button>
+      <button onclick="selectPlayerCount(2)">2 Kişi</button>
+    </div>
+  </div>
+
+  <!-- Çok oyunculu bilgiler -->
+  <div id="multiplayer-setup" class="screen">
+    <h1>Oyuncu Bilgilerini Girin</h1>
+    <div>
+      <input type="text" class="player-input" placeholder="1. Oyuncu Adı" id="player1">
+      <input type="text" class="player-input" placeholder="2. Oyuncu Adı" id="player2">
+    </div>
+    <button onclick="startMultiplayerGame()">Başla</button>
+  </div>
+
+  <!-- Oyun ekranı -->
+  <div class="container">
+    <div class="player-info" id="player-info"></div>
+    <h1>Fotoğrafın Çekildiği Tarihi Tahmin Et!</h1>
+    <div id="photo-container">
+      <img id="photo" src="" alt="Yükleniyor..." />
+      <div id="loading-spinner" class="spinner"></div>
+    </div>
+    <div id="options"></div>
+    <div id="feedback"></div>
+    <div id="navigation">
+      <button id="nextButton" onclick="nextPhoto()" disabled>Sonraki Fotoğraf</button>
+    </div>
+  </div>
+
+  <!-- Oyun bitiş ekranı -->
+  <div id="end-screen" class="screen" style="display: none;">
+    <h1>Oyun Bitti!</h1>
+    <p id="finalScore"></p>
+    <button onclick="restartGame()">Tekrar Oyna</button>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
